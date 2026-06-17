@@ -156,12 +156,12 @@
 
 const startButton = document.querySelector("#startButton");
 
-startButton.addEventListener("click", startGame);
-
 let startTimer = null;
 
 startButton.addEventListener("mouseenter", () => {
-  startTimer = setTimeout(startGame, 1000);
+  startTimer = setTimeout(() => {
+    startGame();
+  }, 1000);
 });
 
 startButton.addEventListener("mouseleave", () => {
@@ -169,6 +169,8 @@ startButton.addEventListener("mouseleave", () => {
 });
 
 startButton.addEventListener("click", startGame);
+
+
 
   //前進処理
   AFRAME.registerComponent('move-player',{
