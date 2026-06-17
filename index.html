@@ -27,8 +27,6 @@
    <a-camera wasd-controls-enabled="false">
   <a-cursor
     color="red"
-    fuse="true"
-    fuse-timeout="1000"
     raycaster="objects: .clickable">
   </a-cursor>
 </a-camera>
@@ -175,21 +173,23 @@ setInterval(() => {
 
 const startButton = document.querySelector("#startButton");
 
-const startButton = document.querySelector("#startButton");
-
-let startTimer = null;
-
-startButton.addEventListener("mouseenter", () => {
-  startTimer = setTimeout(() => {
-    startGame();
-  }, 1000);
-});
-
-startButton.addEventListener("mouseleave", () => {
-  clearTimeout(startTimer);
-});
-
+// PCでクリック
 startButton.addEventListener("click", startGame);
+
+// Questでトリガー
+startButton.addEventListener("mousedown", startGame);
+
+// Enterキーでも開始
+document.addEventListener("keydown", (e) => {
+  if (!gameStarted &&
+      (e.key === "Enter" || e.key === " ")) {
+
+    startGame();
+
+  }
+});
+
+
 
 
 
