@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>GAME CLEAR</title>
+
+<script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+<script src="https://unpkg.com/aframe-troika-text/dist/aframe-troika-text.min.js"></script>
+
+</head>
+
+<body>
+
+<a-scene>
+
+  <a-sky color="#87CEEB"></a-sky>
+
+  <a-entity position="0 1.6 0">
+    <a-camera wasd-controls-enabled="false" look-controls-enabled="false"></a-camera>
+  </a-entity>
+
+  <a-entity
+    troika-text="
+      value: GAME CLEAR!;
+      color: gold;
+      align: center;
+      fontSize: 1;
+    "
+    position="0 2 -4">
+  </a-entity>
+
+  <a-entity
+    troika-text="
+      value: ゴールおめでとう!;
+      color: white;
+      align: center;
+      fontSize: 0.4;
+    "
+    position="0 4 -4">
+  </a-entity>
+
+  
+
+</a-scene>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>GAME CLEAR</title>
+
+<script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+<script src="https://unpkg.com/aframe-troika-text/dist/aframe-troika-text.min.js"></script>
+
+</head>
+
+<body>
+
+    <a-scene>
+
+        <a-sky color="#87CEEB"></a-sky>
+
+        <a-entity position="0 1.6 0">
+            <a-camera wasd-controls-enabled="false" >
+            <a-cursor color="yellow"></a-cursor>
+            </a-camera>
+        </a-entity>
+
+        <a-entity
+            troika-text="
+                value: 障害物にぶつかりました;
+                color: white;
+                align: center;
+                fontSize: 0.4;"
+            position="0 4 -4">
+        </a-entity>
+
+        <a-box
+            id="retryButton"
+            position="0 2 -4"
+            width="2"
+            height="0.7"
+            depth="0.2"
+            color="#00aa66">
+        </a-box>
+
+        <a-text
+            value="RETRY"
+            position="0 2 -3.8"
+            align="center"
+            color="white"
+            width="5">
+        </a-text>
+
+    </a-scene>
+
+
+    <script>
+
+document.addEventListener("click", () => {
+
+  const raycaster =
+    document.querySelector("[cursor]");
+
+});
+
+document.querySelector("#retryButton")
+  .addEventListener("click", () => {
+
+    location.href = "title.html";
+
+});
+
+</script>
+
+</body>
+</html>
