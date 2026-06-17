@@ -143,6 +143,9 @@
 
   // STARTボタンを押した時
   function startGame(){
+  window.onload = () => {
+    startGame();
+  };
   if(gameStarted) return;
 
   gameStarted = true;
