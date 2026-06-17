@@ -83,7 +83,8 @@
   height="0.7"
   width="2.5"
   color="#00aa66"
-  class="clickable">
+  class="clickable"
+  event-set__enter="_event: mouseenter; color: #44ff44">
   </a-box>
 
   <!-- START文字 -->
@@ -153,6 +154,23 @@
   document.querySelector("#startButton").setAttribute("visible", false);
   document.querySelector("#start").setAttribute("visible", false);
 }
+setInterval(() => {
+
+  const camera =
+    document.querySelector("#player");
+
+  const pos = camera.object3D.position;
+
+  if(
+    Math.abs(pos.x) < 2 &&
+    pos.z > 53
+  ){
+    startGame();
+  }
+
+}, 500);
+
+const startButton = document.querySelector("#startButton");
 
 const startButton = document.querySelector("#startButton");
 
@@ -212,12 +230,6 @@ for (let gp of gamepads) {
   }
 
 }
-
-// 左右の加速
-if(!reverseControl){
-
-     
-
       // 左右の加速
       if(!reverseControl){
 
