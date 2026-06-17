@@ -28,7 +28,8 @@
   <a-cursor
     color="red"
     fuse="true"
-    fuse-timeout="1000">
+    fuse-timeout="1000"
+    raycaster="objects:.clickable">
   </a-cursor>
 </a-camera>
 
@@ -140,22 +141,28 @@
 
 
   // STARTボタンを押した時
-  document.querySelector("#startButton")
-    .addEventListener("click", () => {
+  function startGame(){
+  if(gameStarted) return;
 
-      gameStarted=true;
+  gameStarted = true;
 
-      createCones();
+  createCones();
 
-      document.querySelector("#title").setAttribute("visible",false);
-      document.querySelector("#description").setAttribute("visible",false);
-      document.querySelector("#startButton").setAttribute("visible",false);
-      document.querySelector("#start").setAttribute("visible",false);
+  document.querySelector("#title").setAttribute("visible", false);
+  document.querySelector("#description").setAttribute("visible", false);
+  document.querySelector("#startButton").setAttribute("visible", false);
+  document.querySelector("#start").setAttribute("visible", false);
+}
 
-      // 次のシーンへ移動したい場合
-      // location.href = "game.html";
+const startButton = document.querySelector("#startButton");
 
-  });
+startButton.addEventListener("click", startGame);
+
+startButton.addEventListener("mouseenter", () => {
+  setTimeout(() => {
+    startGame();
+  }, 1000);
+});
 
   //前進処理
   AFRAME.registerComponent('move-player',{
