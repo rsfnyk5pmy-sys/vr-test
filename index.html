@@ -29,7 +29,7 @@
     color="red"
     fuse="true"
     fuse-timeout="1000"
-    raycaster="objects:.clickable">
+    raycaster="objects: .clickable">
   </a-cursor>
 </a-camera>
 
@@ -158,11 +158,17 @@ const startButton = document.querySelector("#startButton");
 
 startButton.addEventListener("click", startGame);
 
+let startTimer = null;
+
 startButton.addEventListener("mouseenter", () => {
-  setTimeout(() => {
-    startGame();
-  }, 1000);
+  startTimer = setTimeout(startGame, 1000);
 });
+
+startButton.addEventListener("mouseleave", () => {
+  clearTimeout(startTimer);
+});
+
+startButton.addEventListener("click", startGame);
 
   //前進処理
   AFRAME.registerComponent('move-player',{
