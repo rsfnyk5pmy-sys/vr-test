@@ -140,10 +140,8 @@
 
 
   // STARTボタンを押した時
-  function startGame(){
-  window.onload = () => {
-    startGame();
-  };
+function startGame(){
+  
   if(gameStarted) return;
 
   gameStarted = true;
@@ -155,21 +153,7 @@
   document.querySelector("#startButton").setAttribute("visible", false);
   document.querySelector("#start").setAttribute("visible", false);
 }
-setInterval(() => {
 
-  const camera =
-    document.querySelector("#player");
-
-  const pos = camera.object3D.position;
-
-  if(
-    Math.abs(pos.x) < 2 &&
-    pos.z > 53
-  ){
-    startGame();
-  }
-
-}, 500);
 
 const startButton = document.querySelector("#startButton");
 
