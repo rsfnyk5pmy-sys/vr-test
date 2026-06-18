@@ -164,13 +164,18 @@ startButton.addEventListener("click", startGame);
 startButton.addEventListener("mousedown", startGame);
 
 // Enterキーでも開始
-document.addEventListener("keydown", (e) => {
-  if (!gameStarted &&
-      (e.key === "Enter" || e.key === " ")) {
+document.addEventListener("triggerdown", () => {
 
+  const cursor = document.querySelector("a-cursor");
+
+  const intersection =
+    cursor.components.raycaster
+      ?.getIntersection(startButton);
+
+  if(intersection){
     startGame();
-
   }
+
 });
 
 
